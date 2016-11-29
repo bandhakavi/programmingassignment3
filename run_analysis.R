@@ -38,5 +38,5 @@ library(plyr)
 #master_data_summary contains the means of each variable grouped by subject id and activity id 
 master_data_summary = ddply(master_data, .(subject_id,activity_id),colwise(mean))
 
-#writing the table to a text file named tidy_master_data.txt
+#writing the table to a text file
 write.table(master_data_summary, "tidy_master_data.txt")
