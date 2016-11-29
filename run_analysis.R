@@ -33,7 +33,10 @@ activity_labels = read.table("./UCI HAR Dataset/activity_labels.txt")
 
 #task 5: 
 #cbind the three master data sets
-master_data = cbind(master_subject,master_y,master_x)
+master_data = cbind(master_subject,master_y,master_x_shortlist)
 library(plyr)
 #master_data_summary contains the means of each variable grouped by subject id and activity id 
 master_data_summary = ddply(master_data, .(subject_id,activity_id),colwise(mean))
+
+#writing the table to a text file named tidy_master_data.txt
+write.table(master_data_summary, "tidy_master_data.txt")
